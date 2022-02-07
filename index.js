@@ -21,7 +21,7 @@ connect_db().then((feedback)=>{
 app.use('/api',api_routes);
 app.use('/auth', auth_routes);
 
-const port = 5000 || process.env.PORT;
+const port = process.env.PORT||5000 ;
 
 
 app.listen(port,()=>{
