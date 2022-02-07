@@ -37,6 +37,17 @@ router.get('/items/:rid',async (req,res)=>{
         const resturant = new Resturant({location,city,name,owner});
         await resturant.save();
         res.json(resturant);
+}).get('/resturants',async (req,res)=>{
+    const resturants = await Resturant.find();
+    res.json(resturants);
+}).get('/resturant/:id',async (req,res)=>{
+    const {id} =req.params;
+    const resturant = await Resturant.findById(id);
+    res.json(resturant);
+}).get('/item/:id',async (req,res)=>{
+    const {id} = req.params;
+    const item = await Item.findOne({_id: id});
+    res.json(item);
 })
 
 module.exports = router;

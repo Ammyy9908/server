@@ -5,7 +5,6 @@ const User = require('../models/User');
 const Owner = require('../models/Owner');
 const bcrypt = require('bcryptjs');
 const verifyUser = async (req,res,next)=>{
-
     const token = req.header('Authorization');
     if(!token){
         return res.status(401).json({msg: 'No token, authorization denied'});
